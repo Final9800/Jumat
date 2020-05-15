@@ -11,6 +11,10 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        App\User::create([
+            'name'=>'Admin',
+            'email'=>'admin@laravel.com',
+            'password'=>bcrypt('1234567890')
+        ]);
     }
 }

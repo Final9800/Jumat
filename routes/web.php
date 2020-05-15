@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/addRole','RoleController@index');
+Route::get('/contact', function () {
+    return view('contact');
+})->middleware('ipCheck');
+Route::get('/addRole','RoleController@index')->middleware('auth');
 Route::post('/addRole/add','RoleController@addRole');
 Route::get('/addRole/{id}/delete','RoleController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
